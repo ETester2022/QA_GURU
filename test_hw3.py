@@ -4,16 +4,18 @@ from selenium.webdriver.common.keys import Keys
 
 def test_search_positive(driver):
     """Тест появления текста yashaka/selene: User-oriented Web UI browser tests in Python - GitHub"""
-    driver.find_element(By.ID, 'searchbox_input').send_keys('yashaka/selene')
+    input_text = 'yashaka/selene'
+    driver.find_element(By.ID, 'searchbox_input').send_keys(f'{input_text}')
     driver.find_element(By.ID, 'searchbox_input').send_keys(Keys.RETURN)
-    text = driver.find_element(By.XPATH,
-                               '//*[text()="yashaka/selene: User-oriented Web UI browser tests in Python - GitHub"]')
-    assert text is not None
+    element = driver.find_element(By.XPATH, '//*[contains(text(), "yashaka/selene: User-oriented")]')
+
+    assert element.text == f"{input_text}: User-oriented Web UI browser tests in Python - GitHub"
 
 def test_search_negative(driver):
     """Тест появления текста ничего не найдено"""
-    driver.find_element(By.ID, 'searchbox_input').send_keys('qwertyhnbv34')
+    input_text = 'qwertyhnbv34'
+    driver.find_element(By.ID, 'searchbox_input').send_keys(f'{input_text}')
     driver.find_element(By.ID, 'searchbox_input').send_keys(Keys.RETURN)
-    text = driver.find_element(By.XPATH, '//span[text()="» ничего не найдено."]')
+    element = driver.find_element(By.XPATH, '//span[text()="» ничего не найдено."]')
 
-    assert text is not None
+    assert element.text == f'По запросу «{input_text}» ничего не найдено.'
