@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -16,7 +14,6 @@ def test_search_negative(driver):
     """Тест появления текста ничего не найдено"""
     driver.find_element(By.ID, 'searchbox_input').send_keys('qwertyhnbv34')
     driver.find_element(By.ID, 'searchbox_input').send_keys(Keys.RETURN)
-    time.sleep(1)
     text = driver.find_element(By.XPATH, '//span[text()="» ничего не найдено."]')
 
     assert text is not None
