@@ -68,8 +68,7 @@ def test_unique_elements():
     """
     l = [1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 8, 9, 10, 10]
     # TODO удалите повторяющиеся элементы
-    a = set(l)
-    l = list(a)
+    l = list(set(l))
 
     assert isinstance(l, list)
     assert len(l) == 10
