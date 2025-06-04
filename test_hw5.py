@@ -9,6 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 @pytest.mark.test_fill_registration_form_student
 def test_fill_registration_form_student(driver):
     """Заполнение формы студента"""
+    driver.get("https://demoqa.com/automation-practice-form")
+    driver.implicitly_wait(10)
     driver.execute_script("document.body.style.zoom = '70%'")
 
     first_name = "My firstName"
@@ -27,7 +29,7 @@ def test_fill_registration_form_student(driver):
     f"{user_email}",
     "Male",
     f"{phone}",
-    f"{date} May,2025",
+    f"{date} June,2025",
     f"{picture}",
     f"{subject}",
     "Sports",
@@ -44,7 +46,7 @@ def test_fill_registration_form_student(driver):
     driver.find_element(By.ID, "userNumber").send_keys(f"{phone}")
     #Выбор даты
     driver.find_element(By.ID, "dateOfBirthInput").click()
-    driver.find_element(By.XPATH, f'//div[@aria-label="Choose Thursday, May {date}th, 2025"]').click()
+    driver.find_element(By.XPATH, f'//div[contains(@aria-label, "{date}th")]').click()
     #Выбор предмета
     driver.find_element(By.ID, "subjectsInput").send_keys(f"{subject}")
     driver.find_element(By.XPATH, '//label[@for="hobbies-checkbox-1"]').click()
