@@ -1,5 +1,6 @@
 from datetime import time
 
+
 def dark_theme_by_time(current_time):
     if time(hour=6) <= current_time < time(hour=22):
         return False
