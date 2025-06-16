@@ -4,6 +4,7 @@ import io
 import pandas as pd
 import csv
 
+
 def test_read_pdf(create_archive):
     with ZipFile("sources/archive.zip") as zf:
         pdf_bytes = zf.read("example.pdf")
@@ -19,6 +20,7 @@ def test_read_pdf(create_archive):
         for text in lst_texts:
             assert text in reader.pages[0].extract_text()
 
+
 def test_read_xlsx(create_archive):
     with ZipFile("sources/archive.zip") as zf:
         xlsx_bytes = zf.read("example.xlsx")
@@ -27,6 +29,7 @@ def test_read_xlsx(create_archive):
         columns = df.columns
 
         assert columns[0] == "XLSX test file"
+
 
 def test_read_csv(create_archive):
     with ZipFile("sources/archive.zip") as zf:
