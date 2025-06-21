@@ -18,7 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 """
 Команда запуска тестов только из hw10
-pytest -m hw10 -vv --clean-alluredir --alluredir=allure_result_tests
+pytest -m hw10 -vv --clean-alluredir --alluredir=allure_results10
 """
 @pytest.mark.hw10
 @allure.title("тест на проверку отображения Issue без шагов")
