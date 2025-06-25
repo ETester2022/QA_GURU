@@ -22,7 +22,7 @@ class PegistrationStudentPage:
         self.driver.find_element(By.XPATH, "//qbsearch-input").click()
         self.driver.find_element(By.ID, "query-builder-test").send_keys(repo)
         self.driver.find_element(By.ID, "query-builder-test").send_keys(Keys.RETURN)
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_all_elements_located((By.XPATH, "//span[text()='Issues']"))
             )
         self.driver.find_element(By.XPATH, "//span[text()='Issues']").click()
