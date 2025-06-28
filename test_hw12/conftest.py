@@ -28,9 +28,10 @@ def browser():
 
     login = os.getenv('LOGIN')
     password = os.getenv('PASSWORD')
+    url = os.getenv('URL')
 
     driver = webdriver.Remote(
-        command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"https://{login}:{password}@{url}",
         options=options
     )
     driver.set_window_size(1920, 1080)
