@@ -31,7 +31,7 @@ def test_fill_registration_form_std(browser):
         f"{user_email}",
         "Male",
         f"{phone}",
-        f"{date} June,2025",
+        f"{date} July,2025",
         f"{picture}",
         f"{subject}",
         "Sports",
